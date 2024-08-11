@@ -1,10 +1,14 @@
 .DS_Store
-.gradle
-.idea
-.kotlin
 local.properties
 xcuserdata
+
 build/
+.gradle/
+.idea/
+.kotlin/
+kotlin-js-store/
+SwiftCLI/.build/
+SwiftCLI/.swiftpm/
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/xcshareddata/
