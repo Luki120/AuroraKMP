@@ -2,6 +2,26 @@
 
 * A password generator made with Kotlin Multiplatform, targeting Android, Desktop, iOS & Web. Compose Multiplatform is used for sharing UI across all targets except iOS, which uses native SwiftUI.
 
+## Android
+
+<img src="https://raw.githubusercontent.com/Luki120/AuroraKMP/main/screenshots/Android.png" alt="Android screenshot" width="300">
+
+## iOS
+
+<img src="https://raw.githubusercontent.com/Luki120/AuroraKMP/main/screenshots/iOS-Home.png" alt="iOS home screenshot" width="300"> <img src="https://raw.githubusercontent.com/Luki120/AuroraKMP/main/screenshots/iOS-Settings.png" alt="iOS settings screenshot" width="300">
+
+## Desktop
+
+<img src="https://raw.githubusercontent.com/Luki120/AuroraKMP/main/screenshots/Desktop.png" alt="Desktop screenshot" width="1156">
+
+## Web
+
+<img src="https://raw.githubusercontent.com/Luki120/AuroraKMP/main/screenshots/Web.png" alt="Website screenshot" width="1156">
+
+## SwiftCLI
+
+<img src="https://raw.githubusercontent.com/Luki120/AuroraKMP/main/screenshots/SwiftCLI.png" alt="SwiftCLI screenshot">
+
 ## Socials
 
 * [Twitter](https://twitter.com/Lukii120)
