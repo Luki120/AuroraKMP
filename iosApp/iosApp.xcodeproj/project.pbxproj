@@ -52,6 +52,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		1403863F2C72B0D9002B0437 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				14087CBA2C69D61500874A10 /* Core */,
+				14A70A6A2C69E11E00ACE503 /* Models */,
+				14087CBB2C69D61B00874A10 /* Utilities */,
+				14087CB92C69D60700874A10 /* ViewModels */,
+				14087CB82C69D5FE00874A10 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		14087CB82C69D5FE00874A10 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,11 +134,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				14087CBA2C69D61500874A10 /* Core */,
-				14A70A6A2C69E11E00ACE503 /* Models */,
-				14087CBB2C69D61B00874A10 /* Utilities */,
-				14087CB92C69D60700874A10 /* ViewModels */,
-				14087CB82C69D5FE00874A10 /* Views */,
+				1403863F2C72B0D9002B0437 /* Sources */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
