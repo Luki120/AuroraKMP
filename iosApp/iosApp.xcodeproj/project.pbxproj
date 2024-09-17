@@ -98,6 +98,16 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		14962B862C9966A2009233FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				058557BA273AAA24004C7B11 /* Assets.xcassets */,
+				7555FF8C242A565B00829871 /* Info.plist */,
+				058557D7273AAEEB004C7B11 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		14A70A6A2C69E11E00ACE503 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +144,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				14962B862C9966A2009233FC /* Resources */,
 				1403863F2C72B0D9002B0437 /* Sources */,
-				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF8C242A565B00829871 /* Info.plist */,
-				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -386,14 +394,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = NNS5G9G4TC;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
-				INFOPLIST_FILE = iosApp/Info.plist;
+				INFOPLIST_FILE = iosApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -419,14 +427,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = NNS5G9G4TC;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
-				INFOPLIST_FILE = iosApp/Info.plist;
+				INFOPLIST_FILE = iosApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
