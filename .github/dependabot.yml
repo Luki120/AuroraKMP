@@ -5,17 +5,9 @@ updates:
     schedule:
       interval: "monthly"
     groups:
-      android:
+      kmp-dependencies:
         patterns:
-          - "agp"
-          - "android*"
-
-      kotlin:
-        patterns:
-          - "compose*"
-          - "kotlin*"
-
-      multiplatform:
-        patterns:
+          - "*"
+        exclude-patterns:
           - "multiplatform-settings"
           - "multiplatform-swiftPackage"

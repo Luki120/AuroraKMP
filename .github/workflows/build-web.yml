@@ -32,6 +32,7 @@ jobs:
         with:
           publish-dir: 'composeApp/build/dist/js/productionExecutable'
           deploy-message: 'Deploy from GitHub Actions'
+          production-deploy: true
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
