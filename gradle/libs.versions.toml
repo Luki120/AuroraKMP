@@ -9,7 +9,7 @@ compose-plugin = "1.6.10"
 kotlin = "2.0.0"
 kotlinVersion = "2.0.0"
 multiplatform-settings = "1.1.1"
-multiplatform-swiftPackage = "2.2.2"
+multiplatform-swiftPackage = "2.2.3"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
