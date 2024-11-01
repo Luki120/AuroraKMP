@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      android:
+        patterns:
+          - "agp"
+          - "android*"
+
+      kotlin:
+        patterns:
+          - "compose*"
+          - "kotlin*"
+
+      multiplatform:
+        patterns:
+          - "multiplatform-settings"
+          - "multiplatform-swiftPackage"
