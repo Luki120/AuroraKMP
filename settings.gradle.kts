@@ -30,8 +30,5 @@ dependencyResolutionManagement {
 
 include(":composeApp")
 include(":shared")
-include(":core-datastore")
 include("composeApp:src:jsMain:jsMain")
 findProject(":composeApp:src:jsMain:jsMain")?.name = "jsMain"
-include("core-data")
-include("core-definitions")
