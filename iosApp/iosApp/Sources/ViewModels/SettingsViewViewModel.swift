@@ -1,6 +1,6 @@
 import Foundation
 import UIKit.UIImage
-
+import func SwiftUI.withAnimation
 
 extension SettingsView {
 	/// View model class for SettingsView
@@ -21,28 +21,27 @@ extension SettingsView {
 		/// 	- developer: The Developer object
 		init(developer: Developer = .luki) {
 			self.developer = developer
+			fetchImage()
+		}
 
-			Task {
+		private func fetchImage() {
+			Task.detached(priority: .background) {
+				guard let url = URL(string: self.developer.lukiIcon) else { return }
+
 				do {
-					let image = try await fetchImage()
+					let (data, _) = try await URLSession.shared.data(from: url)
+					guard let image = UIImage(data: data) else { return }
 
 					await MainActor.run {
-						self.image = image
+						withAnimation(.smooth) {
+							self.image = image
+						}
 					}
 				}
 				catch {
 					print(error.localizedDescription)
 				}
 			}
-		}
-
-		private func fetchImage() async throws -> UIImage {
-			guard let url = URL(string: developer.lukiIcon) else { throw URLError(.badURL) }
-
-			let (data, _) = try await URLSession.shared.data(from: url)
-			guard let image = UIImage(data: data) else { throw URLError(.badServerResponse) }
-
-			return image
 		}
 
 	}
