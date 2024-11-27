@@ -27,7 +27,7 @@ struct SettingsView: View {
 					.resizable()
 					.aspectRatio(contentMode: .fit)
 					.frame(width: 40, height: 40)
-					.clipShape(Circle())
+					.clipShape(.circle)
 
 				Text(settingsViewModel.devName)
 			}
@@ -73,7 +73,7 @@ struct SettingsView: View {
 
 	@ViewBuilder
 	private func FooterView() -> some View {
-		Section(footer: Text("© 2024 Luki120")) {
+		Section(footer: Text("© \(Date.now.formatted(.dateTime.year())) Luki120")) {
 			HStack {
 				ForEach(settingsViewModel.fundingPlatforms, id: \.rawValue) { fundingPlatform in
 					fundingPlatform.image
