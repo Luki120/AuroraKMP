@@ -14,6 +14,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import components.application
+import components.copyrightYear
 
 @Composable
 fun FooterView() {
@@ -47,7 +48,7 @@ private fun AttributedFooterText(string: String, subString: String) {
                         .pointerHoverIcon(PointerIcon.Hand)
                 )
             }
-            Text("© 2024 Luki120", fontSize = 10.sp, color = Color.Gray)
+            Text("© $copyrightYear Luki120", fontSize = 10.sp, color = Color.Gray)
         }
     }
 }
