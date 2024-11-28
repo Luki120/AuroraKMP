@@ -1,6 +1,7 @@
 package ui.presentation
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -17,6 +18,7 @@ import ui.composables.AttributedString
 import ui.composables.FooterView
 import ui.theme.AppTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 @Preview
 fun App(darkTheme: Boolean, dynamicColor: Boolean, viewModel: AppViewModel) {
@@ -28,6 +30,8 @@ fun App(darkTheme: Boolean, dynamicColor: Boolean, viewModel: AppViewModel) {
         var isAnimating by remember { mutableStateOf(false) }
         var length by remember { mutableFloatStateOf(20f) }
         var textState by remember { mutableStateOf("") }
+
+        val interactionSource = remember { MutableInteractionSource() }
 
         LaunchedEffect(Unit) {
             textState = viewModel.getRandomString(length = length.toInt())
@@ -62,16 +66,21 @@ fun App(darkTheme: Boolean, dynamicColor: Boolean, viewModel: AppViewModel) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Slider(
-                        colors = SliderDefaults.colors(thumbColor = Color.White),
                         modifier = Modifier.width(200.dp),
                         value = length,
                         valueRange = 10f..25f,
                         onValueChange = {
                             isAnimating = true
                             length = it
-                            textState = viewModel.getRandomString(length =  length.toInt())
+                            textState = viewModel.getRandomString(length = length.toInt())
                         },
-                        onValueChangeFinished = { isAnimating = false }
+                        thumb = {
+                            SliderDefaults.Thumb(
+                                interactionSource = interactionSource,
+                                modifier = Modifier.height(30.dp)
+                            )
+                        },
+                        onValueChangeFinished = { isAnimating = false },
                     )
                     Text(
                         text = "${length.toInt()}",
