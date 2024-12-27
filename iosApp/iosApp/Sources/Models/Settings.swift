@@ -3,7 +3,7 @@ import struct SwiftUI.Image
 
 
 /// Enum to represent a developer for the GitHub cell
-@frozen enum Developer: String {
+enum Developer: String {
 	case luki = "Luki120"
 
 	var devName: String { rawValue }
@@ -18,7 +18,7 @@ import struct SwiftUI.Image
 }
 
 /// Enum to represent each app for the app cell
-@frozen enum App: String, CaseIterable {
+enum App: String, CaseIterable {
 	case areesha = "Areesha"
 	case auroraKMP = "Aurora"
 
@@ -41,7 +41,7 @@ import struct SwiftUI.Image
 }
 
 /// Enum to represent each funding platform for the funding cell
-@frozen enum FundingPlatform: String, CaseIterable {
+enum FundingPlatform: String, CaseIterable {
 	case kofi = "Ko-fi"
 	case paypal = "PayPal"
 
