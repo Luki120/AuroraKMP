@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-	@EnvironmentObject private var viewModel: AuroraViewModel
+	@StateObject private var passwordManager = PasswordManager.shared
 	@StateObject private var settingsViewModel = SettingsViewViewModel()
 
 	var body: some View {
@@ -43,9 +43,9 @@ struct SettingsView: View {
 	private func OptionsView() -> some View {
 		Section("Options") {
 			Group {
-				Toggle("A-Z", isOn: viewModel.$includeUppercase)
-				Toggle("0-9", isOn: viewModel.$includeNumbers)
-				Toggle("!@#$%^&*", isOn: viewModel.$includeSymbols)
+				Toggle("A-Z",isOn: passwordManager.includeUppercase)
+				Toggle("0-9", isOn: passwordManager.includeNumbers)
+				Toggle("!@#$%^&*", isOn: passwordManager.includeSymbols)
 			}
 			.tint(.auroraBlue)
 		}
@@ -73,16 +73,16 @@ struct SettingsView: View {
 
 	@ViewBuilder
 	private func FooterView() -> some View {
-		Section(footer: Text("© \(Date.now.formatted(.dateTime.year())) Luki120")) {
+		Section(footer: Text("© 2024-\(Date.now.formatted(.dateTime.year())) Luki120")) {
 			HStack {
-				ForEach(settingsViewModel.fundingPlatforms, id: \.rawValue) { fundingPlatform in
-					fundingPlatform.image
+				ForEach(settingsViewModel.fundingPlatforms, id: \.rawValue) { platform in
+					platform.image
 						.resizable()
 						.aspectRatio(contentMode: .fit)
 						.frame(width: 25, height: 25)
 						.contentShape(.rect)
 						.onTapGesture {
-							settingsViewModel.openURL(fundingPlatform.url)
+							settingsViewModel.openURL(platform.url)
 						}
 				}
 			}
@@ -94,5 +94,4 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
-		.environmentObject(AuroraViewModel())
 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
-		14A70A652C69D70200ACE503 /* AuroraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A70A642C69D70200ACE503 /* AuroraViewModel.swift */; };
+		14A70A652C69D70200ACE503 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A70A642C69D70200ACE503 /* PasswordManager.swift */; };
 		14A70A672C69D86400ACE503 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A70A662C69D86400ACE503 /* SettingsView.swift */; };
 		14A70A692C69DA0D00ACE503 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A70A682C69DA0D00ACE503 /* Extensions.swift */; };
 		14A70A6C2C69E13D00ACE503 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A70A6B2C69E13D00ACE503 /* Settings.swift */; };
@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		14A70A642C69D70200ACE503 /* AuroraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraViewModel.swift; sourceTree = "<group>"; };
+		14A70A642C69D70200ACE503 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
 		14A70A662C69D86400ACE503 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		14A70A682C69DA0D00ACE503 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		14A70A6B2C69E13D00ACE503 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -76,7 +76,6 @@
 		14087CB92C69D60700874A10 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				14A70A642C69D70200ACE503 /* AuroraViewModel.swift */,
 				14A70A6D2C69E2E300ACE503 /* SettingsViewViewModel.swift */,
 			);
 			path = ViewModels;
@@ -94,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				14A70A682C69DA0D00ACE503 /* Extensions.swift */,
+				14A70A642C69D70200ACE503 /* PasswordManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1620;
 				ORGANIZATIONNAME = orgName;
 				TargetAttributes = {
 					7555FF7A242A565900829871 = {
@@ -232,7 +232,8 @@
 /* Begin PBXShellScriptBuildPhase section */
 		F36B1CEA2AD836FC00CB74D5 /* Compile Kotlin Framework */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -257,7 +258,7 @@
 			files = (
 				14A70A692C69DA0D00ACE503 /* Extensions.swift in Sources */,
 				14A70A6C2C69E13D00ACE503 /* Settings.swift in Sources */,
-				14A70A652C69D70200ACE503 /* AuroraViewModel.swift in Sources */,
+				14A70A652C69D70200ACE503 /* PasswordManager.swift in Sources */,
 				14A70A672C69D86400ACE503 /* SettingsView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
@@ -273,6 +274,7 @@
 			baseConfigurationReference = AB3632DC29227652001CCB65 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -336,6 +338,7 @@
 			baseConfigurationReference = AB3632DC29227652001CCB65 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -416,7 +419,7 @@
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = me.luki.aurorakmp;
 				PRODUCT_NAME = "${APP_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -449,7 +452,7 @@
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = me.luki.aurorakmp;
 				PRODUCT_NAME = "${APP_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

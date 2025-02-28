@@ -4,10 +4,9 @@ struct ContentView: View {
 	@State private var password = ""
 	@State private var isAnimating = false
 	@State private var shouldShowToast = false
-
 	@AppStorage("passwordLength") private var passwordLength = 20.0
 
-	@EnvironmentObject private var viewModel: AuroraViewModel
+	private let passwordManager = PasswordManager.shared
 
 	var body: some View {
 		TabView {
@@ -27,7 +26,7 @@ struct ContentView: View {
 					.transition(.opacity.animation(.easeInOut(duration: 0.5)))
 
 				ButtonView(title: "Generate password") {
-					password = viewModel.generateRandomString(withLength: Int32(passwordLength))
+					password = passwordManager.generateRandomString(length: passwordLength)
 				}
 				.padding(.top, 10)
 
@@ -40,7 +39,9 @@ struct ContentView: View {
 
 				HStack {
 					Slider(value: $passwordLength, in: 10...25) { _ in
-						password = viewModel.generateRandomString(withLength: Int32(passwordLength))
+						password = passwordManager.generateRandomString(
+							length: passwordLength
+						)
 					}
 					.frame(width: 220)
 					.tint(.auroraBlue)
@@ -59,7 +60,7 @@ struct ContentView: View {
 				.frame(height: 100)
 			}
 			.task {
-				password = viewModel.generateRandomString(withLength: Int32(passwordLength))
+				password = passwordManager.generateRandomString(length: passwordLength)
 			}
 			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 			.navigationBarTitle("Home", displayMode: .inline)
@@ -98,7 +99,6 @@ struct ContentView: View {
 }
 
 private struct ToastView: UIViewRepresentable {
-
 	@Binding var isAnimating: Bool
 	@Binding var shouldShowToast: Bool
 
@@ -112,11 +112,9 @@ private struct ToastView: UIViewRepresentable {
 
 		shouldShowToast = false
 	}
-
 }
 
 private final class UIToastView: UIView {
-
 	private var isAnimating: Bool
 
 	private lazy var toastView: UIView = {
@@ -197,5 +195,4 @@ extension UIToastView {
 
 #Preview {
 	ContentView()
-		.environmentObject(AuroraViewModel())
 }
