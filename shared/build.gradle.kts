@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -13,21 +12,18 @@ kotlin {
     wasmJs()
 
     js(IR) {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions.target = "es2015"
-
         browser()
     }
 
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     jvm()
-    
+
     listOf(
         iosX64(),
         iosArm64(),
