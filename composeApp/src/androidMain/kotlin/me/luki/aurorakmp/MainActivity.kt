@@ -14,13 +14,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val viewModel = AppViewModel(
-            passwordGeneratorRepository = providePasswordGeneratorRepository(),
-            settingsRepository = provideSettingsRepository()
-        )
+        val viewModel = remember {
+            AppViewModel(passwordGeneratorRepository = providePasswordGeneratorRepository())
+        }
 
         setContent {
-            App(darkTheme = isSystemInDarkTheme(), dynamicColor = true, viewModel = remember { viewModel })
+            App(darkTheme = isSystemInDarkTheme(), dynamicColor = true, viewModel = viewModel)
         }
     }
 }

@@ -7,15 +7,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import di.PasswordGeneratorProvider.providePasswordGeneratorRepository
-import di.SettingsProvider.provideSettingsRepository
 import ui.presentation.App
 import ui.presentation.AppViewModel
 
 fun main() {
-    val viewModel = AppViewModel(
-        passwordGeneratorRepository = providePasswordGeneratorRepository(),
-        settingsRepository = provideSettingsRepository()
-    )
+    val viewModel = AppViewModel(passwordGeneratorRepository = providePasswordGeneratorRepository())
 
     application {
         Window(onCloseRequest = ::exitApplication, title = "AuroraKMP") {
