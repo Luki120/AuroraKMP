@@ -48,7 +48,7 @@ private fun AttributedFooterText(string: String, subString: String) {
                         .pointerHoverIcon(PointerIcon.Hand)
                 )
             }
-            Text("© $copyrightYear Luki120", fontSize = 10.sp, color = Color.Gray)
+            Text("© 2024-$copyrightYear Luki120", fontSize = 10.sp, color = Color.Gray)
         }
     }
 }
