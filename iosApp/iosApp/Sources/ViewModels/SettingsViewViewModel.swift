@@ -4,8 +4,8 @@ import func SwiftUI.withAnimation
 
 extension SettingsView {
 	/// View model class for SettingsView
+	@MainActor
 	final class SettingsViewViewModel: ObservableObject {
-
 		@Published
 		private(set) var image = UIImage()
 
@@ -43,7 +43,6 @@ extension SettingsView {
 				}
 			}
 		}
-
 	}
 }
 
