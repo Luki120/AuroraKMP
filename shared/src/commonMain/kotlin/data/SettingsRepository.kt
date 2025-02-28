@@ -2,7 +2,7 @@ package data
 
 import com.russhwolf.settings.Settings
 
-interface SettingsRepository {
+internal interface SettingsRepository {
     object Constants {
         const val INCLUDE_UPPERCASE_KEY = "includeUppercase"
         const val INCLUDE_NUMBERS_KEY = "includeNumbers"
