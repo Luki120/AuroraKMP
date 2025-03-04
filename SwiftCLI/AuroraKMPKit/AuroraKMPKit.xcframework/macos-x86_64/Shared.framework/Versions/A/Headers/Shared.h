@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class SharedSettingsRepositoryConstants, SharedPasswordGeneratorProvider, SharedSettingsProvider;
+@class SharedPasswordGeneratorProvider;
 
-@protocol SharedPasswordGeneratorRepository, SharedSettingsRepository;
+@protocol SharedPasswordGeneratorRepository;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -153,25 +153,6 @@ __attribute__((swift_name("PasswordGeneratorRepository")))
 @property BOOL includeUppercase __attribute__((swift_name("includeUppercase")));
 @end
 
-__attribute__((swift_name("SettingsRepository")))
-@protocol SharedSettingsRepository
-@required
-- (BOOL)retrieveDataKey:(NSString *)key __attribute__((swift_name("retrieveData(key:)")));
-- (void)saveDataKey:(NSString *)key value:(BOOL)value __attribute__((swift_name("saveData(key:value:)")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SettingsRepositoryConstants")))
-@interface SharedSettingsRepositoryConstants : SharedBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)constants __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) SharedSettingsRepositoryConstants *shared __attribute__((swift_name("shared")));
-@property (readonly) NSString *INCLUDE_NUMBERS_KEY __attribute__((swift_name("INCLUDE_NUMBERS_KEY")));
-@property (readonly) NSString *INCLUDE_SYMBOLS_KEY __attribute__((swift_name("INCLUDE_SYMBOLS_KEY")));
-@property (readonly) NSString *INCLUDE_UPPERCASE_KEY __attribute__((swift_name("INCLUDE_UPPERCASE_KEY")));
-@end
-
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("PasswordGeneratorProvider")))
 @interface SharedPasswordGeneratorProvider : SharedBase
@@ -180,16 +161,6 @@ __attribute__((swift_name("PasswordGeneratorProvider")))
 + (instancetype)passwordGeneratorProvider __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) SharedPasswordGeneratorProvider *shared __attribute__((swift_name("shared")));
 - (id<SharedPasswordGeneratorRepository>)providePasswordGeneratorRepository __attribute__((swift_name("providePasswordGeneratorRepository()")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("SettingsProvider")))
-@interface SharedSettingsProvider : SharedBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)settingsProvider __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) SharedSettingsProvider *shared __attribute__((swift_name("shared")));
-- (id<SharedSettingsRepository>)provideSettingsRepository __attribute__((swift_name("provideSettingsRepository()")));
 @end
 
 #pragma pop_macro("_Nullable_result")
