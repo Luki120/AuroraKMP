@@ -3,7 +3,7 @@ import Shared
 
 @main
 private struct Aurora: ParsableCommand {
-	static var configuration = CommandConfiguration(
+	static let configuration = CommandConfiguration(
 		abstract: AuroraConfig.name,
 		usage: AuroraConfig.usage,
 		discussion: AuroraConfig.description,
@@ -73,7 +73,6 @@ private extension ArgumentHelp {
 	static let noSymbolsHelp = ArgumentHelp("Don't include symbols.")
 }
 
-@frozen
 private enum AuroraError: Error {
 	case invalidRange
 
