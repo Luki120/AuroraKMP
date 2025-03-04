@@ -58,7 +58,7 @@ private struct Aurora: ParsableCommand {
 }
 
 private struct AuroraConfig {
-	static let name = "Aurora - © 2024 Luki120".dodgerBlue()
+	static let name = "Aurora - © 2024-\(Date.now.formatted(.dateTime.year())) Luki120".dodgerBlue()
 	static let description = "Aurora's the CLI version of AuroraKMP, a password generator made with ".skyBlue()
 	+ "Kotlin Multiplatform, ".mediumPurple()
 	+ "targetting Android, Desktop, iOS (using SwiftUI) & Web.".skyBlue()
