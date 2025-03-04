@@ -11,7 +11,7 @@ private struct Aurora: ParsableCommand {
 	)
 
 	@Option(name: .shortAndLong, help: .lengthHelp)
-	private var length = 25
+	private var length: Int32 = 25
 
 	@Flag(help: .noUppercaseHelp)
 	private var noUppercase = false
@@ -38,7 +38,7 @@ private struct Aurora: ParsableCommand {
 		passwordGeneratorRepository.includeNumbers = !noNumbers
 		passwordGeneratorRepository.includeSymbols = !noSymbols
 
-		let password = passwordGeneratorRepository.getRandomString(length: Int32(length))
+		let password = passwordGeneratorRepository.getRandomString(length: length)
 		var result = ""
 
 		password.forEach { char in
@@ -57,13 +57,23 @@ private struct Aurora: ParsableCommand {
 	}
 }
 
-private struct AuroraConfig {
-	static let name = "Aurora - © 2024-\(Date.now.formatted(.dateTime.year())) Luki120".dodgerBlue()
-	static let description = "Aurora's the CLI version of AuroraKMP, a password generator made with ".skyBlue()
-	+ "Kotlin Multiplatform, ".mediumPurple()
-	+ "targetting Android, Desktop, iOS (using SwiftUI) & Web.".skyBlue()
-	static let usage = "aurora <options>".violet()
-	static let version = "0.9.0"
+private extension Aurora {
+	private struct AuroraConfig {
+		static let name = "Aurora - © 2024-\(Date.now.formatted(.dateTime.year())) Luki120".dodgerBlue()
+		static let description = "Aurora's the CLI version of AuroraKMP, a password generator made with ".skyBlue()
+		+ "Kotlin Multiplatform, ".mediumPurple()
+		+ "targetting Android, Desktop, iOS (using SwiftUI) & Web.".skyBlue()
+		static let usage = "aurora <options>".violet()
+		static let version = "0.9.0"
+	}
+
+	private enum AuroraError: Error {
+		case invalidRange
+
+		var description: String {
+			return "Aurora error: length must be between 10 & 125".red()
+		}
+	}
 }
 
 private extension ArgumentHelp {
@@ -71,12 +81,4 @@ private extension ArgumentHelp {
 	static let noUppercaseHelp = ArgumentHelp("Don't include uppercase characters.")
 	static let noNumbersHelp = ArgumentHelp("Don't include numbers.")
 	static let noSymbolsHelp = ArgumentHelp("Don't include symbols.")
-}
-
-private enum AuroraError: Error {
-	case invalidRange
-
-	var description: String {
-		return "Aurora error: length must be between 10 & 125".red()
-	}
 }
