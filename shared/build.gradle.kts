@@ -9,7 +9,9 @@ plugins {
 
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
-    wasmJs()
+    wasmJs {
+        browser()
+    }
 
     js(IR) {
         compilerOptions.target = "es2015"
@@ -57,7 +59,8 @@ android {
 
 multiplatformSwiftPackage {
     packageName("AuroraKMPKit")
-    swiftToolsVersion("5.10")
+    swiftToolsVersion("6.0")
+    outputDirectory(File(projectDir, "../SwiftCLI/AuroraKMPKit"))
     targetPlatforms {
         macOS { v("13") }
     }
