@@ -30,5 +30,3 @@ dependencyResolutionManagement {
 
 include(":composeApp")
 include(":shared")
-include("composeApp:src:jsMain:jsMain")
-findProject(":composeApp:src:jsMain:jsMain")?.name = "jsMain"
