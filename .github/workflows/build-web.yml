@@ -2,17 +2,14 @@ name: Build web & deploy
 
 on:
   pull_request:
-
-  push:
-    branches:
-      - main
-    paths:
-      - composeApp/**
+    types:
+      - closed
 
   workflow_dispatch:
 
 jobs:
-  build:
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +19,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
+          java-version: '21'
           distribution: 'zulu'
           cache: gradle
 
