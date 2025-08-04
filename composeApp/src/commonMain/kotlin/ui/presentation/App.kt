@@ -8,11 +8,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalClipboardManager
-import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.platform.LocalClipboard
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import components.clipEntry
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import ui.composables.AttributedString
 import ui.composables.FooterView
@@ -25,12 +26,13 @@ fun App(darkTheme: Boolean, dynamicColor: Boolean, viewModel: AppViewModel) {
     AppTheme(darkTheme = darkTheme, dynamicColor = dynamicColor) {
         viewModel.handlePasswordIntent(PasswordIntent.LaunchApp)
 
-        val clipboardManager = LocalClipboardManager.current
+        val clipboardManager = LocalClipboard.current
 
         var isAnimating by remember { mutableStateOf(false) }
         var length by remember { mutableFloatStateOf(20f) }
         var textState by remember { mutableStateOf("") }
 
+        val coroutineScope = rememberCoroutineScope()
         val interactionSource = remember { MutableInteractionSource() }
 
         LaunchedEffect(Unit) {
@@ -58,7 +60,11 @@ fun App(darkTheme: Boolean, dynamicColor: Boolean, viewModel: AppViewModel) {
                 Button(onClick = { textState = viewModel.getRandomString(length = length.toInt()) }) {
                     Text("Generate password")
                 }
-                Button(onClick = { clipboardManager.setText(AnnotatedString(textState)) }) {
+                Button(onClick = {
+                    coroutineScope.launch {
+                        clipboardManager.setClipEntry(clipEntry(textState))
+                    }
+                }) {
                     Text("Copy password")
                 }
                 Row(

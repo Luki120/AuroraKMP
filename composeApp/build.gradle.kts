@@ -42,6 +42,10 @@ kotlin {
     jvm("desktop")
 
     sourceSets {
+        all {
+            languageSettings.optIn("kotlin.RequiresOptIn")
+        }
+
         val desktopMain by getting
 
         androidMain.dependencies {
