@@ -43,9 +43,9 @@ struct SettingsView: View {
 	private func OptionsView() -> some View {
 		Section("Options") {
 			Group {
-				Toggle("A-Z",isOn: passwordManager.includeUppercase)
-				Toggle("0-9", isOn: passwordManager.includeNumbers)
-				Toggle("!@#$%^&*", isOn: passwordManager.includeSymbols)
+				Toggle("A-Z",isOn: $passwordManager.repository.includeUppercase)
+				Toggle("0-9", isOn: $passwordManager.repository.includeNumbers)
+				Toggle("!@#$%^&*", isOn: $passwordManager.repository.includeSymbols)
 			}
 			.tint(.auroraBlue)
 		}
