@@ -6,9 +6,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.window.CanvasBasedWindow
+import androidx.compose.ui.window.ComposeViewport
 import di.PasswordGeneratorProvider.providePasswordGeneratorRepository
-import org.jetbrains.skiko.wasm.onWasmReady
 import ui.presentation.App
 import ui.presentation.AppViewModel
 
@@ -16,15 +15,13 @@ import ui.presentation.AppViewModel
 fun main() {
     val viewModel = AppViewModel(passwordGeneratorRepository = providePasswordGeneratorRepository())
 
-    onWasmReady {
-        CanvasBasedWindow(title = "AuroraKMP", canvasElementId = "ComposeCanvas") {
-            Box(
-                modifier = Modifier
-                    .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
-                    .fillMaxSize()
-            ) {
-                App(darkTheme = isSystemInDarkTheme(), dynamicColor = false, viewModel = remember { viewModel })
-            }
+    ComposeViewport {
+        Box(
+            modifier = Modifier
+                .background(if (isSystemInDarkTheme()) Color.Black else Color.White)
+                .fillMaxSize()
+        ) {
+            App(darkTheme = isSystemInDarkTheme(), dynamicColor = false, viewModel = remember { viewModel })
         }
     }
 }
