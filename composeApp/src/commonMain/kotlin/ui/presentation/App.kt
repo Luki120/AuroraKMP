@@ -14,14 +14,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import components.clipEntry
 import kotlinx.coroutines.launch
-import org.jetbrains.compose.ui.tooling.preview.Preview
 import ui.composables.AttributedString
 import ui.composables.FooterView
 import ui.theme.AppTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Preview
 fun App(darkTheme: Boolean, dynamicColor: Boolean, viewModel: AppViewModel) {
     AppTheme(darkTheme = darkTheme, dynamicColor = dynamicColor) {
         viewModel.handlePasswordIntent(PasswordIntent.LaunchApp)
